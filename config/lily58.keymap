@@ -28,6 +28,37 @@
 
             tapping-term-ms = <200>;
         };
+
+        mosl2: mosl2 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MOSL2";
+            #binding-cells = <0>;
+            bindings = <&mo 2>, <&sl 2>;
+        };
+
+        mosl1: mosl1 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "MOSL1";
+            #binding-cells = <0>;
+            bindings = <&mo 1>, <&sl 1>;
+        };
+
+        btClrClrAll: btClrClrAll {
+            compatible = "zmk,behavior-tap-dance";
+            label = "BTCLRCLRALL";
+            #binding-cells = <0>;
+            bindings = <&bt BT_CLR>, <&bt BT_CLR_ALL>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        btlayer {
+            bindings = <&mo 3>;
+            key-positions = <50 57>;
+            layers = <0>;
+        };
     };
 
     keymap {
@@ -47,7 +78,7 @@
 &kp TAB    &kp Q   &kp W   &kp E   &kp R     &kp T                                &kp Y          &kp U    &kp I      &kp O    &kp P     &kp EQUAL
 &shiftCW   &kp A   &kp S   &kp D   &kp F     &kp G                                &kp H          &kp J    &kp K      &kp L    &kp SEMI  &kp SQT
 &kp LCTRL  &kp Z   &kp X   &kp C   &kp V     &kp B         &kp LBKT     &kp RBKT  &kp N          &kp M    &kp COMMA  &kp DOT  &kp FSLH  &kp RSHFT
-                           &mo 2   &kp LGUI  &kp LEFT_ALT  &kp SPACE    &kp RET   &kp BACKSPACE  &kp DEL  &sl 1
+                           &mosl1  &kp LGUI  &kp LEFT_ALT  &kp SPACE    &kp RET   &kp BACKSPACE  &kp DEL  &mosl2
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -63,11 +94,11 @@
 
             label = "Raise";
             bindings = <
-&kp GRAVE       &bt BT_CLR  &kp F2  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2                    &bt BT_SEL 2  &kp F7     &kp F8     &kp F9    &kp F10   &kp F11
-&kp GRAVE       &kp F1      &kp F2  &kp F3        &kp F4        &kp F5                          &kp F6        &kp F7     &kp F7     &kp F8    &kp F10   &kp BACKSLASH
-&kp LEFT_SHIFT  &kp N1      &kp N2  &kp N3        &kp N4        &kp N5                          &kp N6        &kp N7     &kp N8     &kp N9    &kp N0    &kp F12
-&kp F7          &kp F8      &kp F9  &kp F10       &kp F11       &kp F12       &trans    &trans  &kp KP_PLUS   &kp MINUS  &kp EQUAL  &kp LBKT  &kp RBKT  &kp RIGHT_SHIFT
-                                    &sl 0         &trans        &trans        &trans    &trans  &trans        &trans     &trans
+&kp GRAVE       &bt BT_CLR  &kp F2  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2                    &bt BT_SEL 2  &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
+&kp GRAVE       &kp F1      &kp F2  &kp F3        &kp F4        &kp F5                          &kp F6        &kp F7     &kp F7     &kp F8     &kp F10   &kp BACKSLASH
+&kp LEFT_SHIFT  &kp N1      &kp N2  &kp N3        &kp N4        &kp N5                          &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT  &kp N0    &kp F12
+&kp F7          &kp F8      &kp F9  &kp F10       &kp F11       &kp F12       &trans    &trans  &kp KP_PLUS   &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp RIGHT_SHIFT
+                                    &sl 0         &trans        &trans        &trans    &trans  &trans        &trans     &sl 0
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
@@ -83,14 +114,24 @@
 
             label = "Lower";
             bindings = <
-&bt BT_CLR  &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &trans     &trans     &trans           &trans    &trans    &trans
-&kp F1      &kp F2            &kp F3             &kp F4             &kp F5        &kp F6                          &kp F7     &kp F8     &kp F9           &kp F10   &kp F11   &kp F12
-&kp GRAVE   &kp EXCL          &kp AT             &kp HASH           &kp DOLLAR    &kp PRCNT                       &kp CARET  &kp AMPS   &kp KP_MULTIPLY  &kp LPAR  &kp RPAR  &kp TILDE
-&trans      &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans        &trans        &trans    &trans  &trans     &kp MINUS  &kp KP_PLUS      &kp LBRC  &kp RBRC  &kp PIPE
-                                                 &sl 0              &trans        &trans        &trans    &trans  &trans     &trans     &trans
+&bt BT_CLR      &bt BT_SEL 0      &bt BT_SEL 1       &bt BT_SEL 2       &bt BT_SEL 3  &bt BT_SEL 4                    &trans    &trans     &trans       &trans     &trans    &trans
+&kp GRAVE       &kp F2            &kp F3             &kp F4             &kp F5        &kp F6                          &kp F7    &kp F8     &kp F9       &kp F10    &kp F11   &kp F12
+&kp LEFT_SHIFT  &kp EXCL          &kp AT             &kp HASH           &kp DOLLAR    &kp PRCNT                       &kp LEFT  &kp DOWN   &kp UP       &kp RIGHT  &kp RPAR  &kp TILDE
+&trans          &ext_power EP_ON  &ext_power EP_OFF  &ext_power EP_TOG  &trans        &trans        &trans    &trans  &trans    &kp MINUS  &kp KP_PLUS  &kp LBRC   &kp RBRC  &kp PIPE
+                                                     &sl 0              &trans        &trans        &trans    &trans  &trans    &trans     &sl 0
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+        };
+
+        layer_3 {
+            bindings = <
+&btClrClrAll  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                    &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &trans        &trans                          &trans  &trans  &trans  &trans  &trans  &trans
+&trans        &trans        &trans        &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                                          &trans        &trans        &trans        &trans    &trans  &trans  &trans  &trans
+            >;
         };
     };
 };
