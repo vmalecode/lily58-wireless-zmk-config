@@ -94,10 +94,10 @@
 
             label = "Raise";
             bindings = <
-&kp GRAVE       &kp F1   &kp F2  &kp F3   &kp F4   &kp F5                       &kp F6       &kp F7     &kp F8     &kp F9     &kp F10   &kp F11
-&kp GRAVE       &kp F12  &kp F2  &kp F3   &kp F4   &kp F5                       &kp F6       &kp F7     &kp F7     &kp F8     &kp F10   &kp BACKSLASH
-&kp LEFT_SHIFT  &kp N1   &kp N2  &kp N3   &kp N4   &kp N5                       &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &kp END   &kp F12
-&kp LCTRL       &kp F8   &kp F9  &kp F10  &kp F11  &kp F12  &trans    &kp HOME  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT   &kp RBKT  &kp RIGHT_SHIFT
+&kp GRAVE       &kp F1   &kp F2  &kp F3   &kp F4   &kp F5                       &kp F6       &kp F7     &kp F8     &kp F9            &kp F10            &kp F11
+&kp GRAVE       &kp F12  &kp F2  &kp F3   &kp F4   &kp F5                       &kp F6       &kp F7     &kp F7     &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH
+&kp LEFT_SHIFT  &kp N1   &kp N2  &kp N3   &kp N4   &kp N5                       &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT         &kp END            &kp F12
+&kp LCTRL       &kp F8   &kp F9  &kp F10  &kp F11  &kp F12  &trans    &kp HOME  &kp KP_PLUS  &kp MINUS  &kp EQUAL  &kp LBKT          &kp RBKT           &kp RIGHT_SHIFT
                                  &sl 0    &trans   &trans   &trans    &trans    &trans       &trans     &sl 0
             >;
 
